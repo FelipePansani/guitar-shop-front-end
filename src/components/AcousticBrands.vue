@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Booomm</h1>
     <div class="brand-box">
+      <h3>Violões</h3>
       <a href=""><img :src="image1" alt="" /></a>
       <a href=""><img :src="image2" alt="" /></a>
       <a href=""><img :src="image3" alt="" /></a>
@@ -31,6 +31,19 @@ export default {
 <style scoped>
 .brand-box {
   text-align: center;
-  margin: 20px;
+  padding: 20px;
+  margin: 40px;
+  background-color: rgb(8, 8, 8);
+  border: 2px solid white
 }
+
+.brand-box h3 {
+  color: white;
+}
+
+.brand-box a {
+  display: inline-block;
+  margin: 30px;
+}
+
 </style>

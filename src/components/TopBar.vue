@@ -1,9 +1,9 @@
 <template>
   <div class="top-bar">
     <div class="icons">
-      <a href=""><i class="fab fa-facebook-square"></i></a>
-      <a href=""><i class="fab fa-twitter-square"></i></a>
-      <a href=""><i class="fab fa-instagram-square"></i></a>
+      <a href="https://pt-br.facebook.com/"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a>
+      <a href="https://www.youtube.com/"><i style="font-size: 32px" class="fab fa-youtube"></i></a>
     </div>
     <a href=""><h1>Single Tone</h1></a>
     <input type="text" placeholder="Digite aqui..." />
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// import "font-awesome/css/font-awesome.css";
 
 export default {
   name: "TopBar",
@@ -19,40 +18,33 @@ export default {
 </script>
 
 <style scoped>
+
 .top-bar {
-  padding: 15px;
-  text-align: center;
+  padding: 50px;
+  columns: 3;
 }
+
 a {
   color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-right: 20px;
 }
 
 .icons {
   font-size: 28px;
-  margin-right: 10px;
+  margin-right: 20px;
   float: left;
 }
 
-.icons i {
-  margin-right: 20px;
-}
-
-.icons,
-h1,
 input {
-  display: inline-block;
-  margin: 40px;
+  border-radius: 25px;
+  height: 35px;
+  width: 250px;
+  padding: 0px 8px;
 }
 
 h1 {
   text-align: center;
 }
 
-input {
-  float: right;
-  border-radius: 25px;
-  height: 30px;
-  width: 200px;
-  padding: 0px 8px;
-}
 </style>

@@ -3,6 +3,7 @@
     <TopBar />
     <NavBar />
     <BassesBrands />
+    <BottomInfo />
     <Footer />
   </div>
 </template>
@@ -11,6 +12,7 @@
 import TopBar from '../components/TopBar.vue'
 import NavBar from '../components/NavBar.vue'
 import BassesBrands from '../components/BassesBrands.vue'
+import BottomInfo from '../components/BottomInfo.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
@@ -19,6 +21,7 @@ export default {
     TopBar,
     NavBar,
     BassesBrands,
+    BottomInfo,
     Footer
   },
 }

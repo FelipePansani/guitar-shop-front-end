@@ -2,10 +2,10 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/">HOME</router-link> 
+        <router-link to="/">HOME</router-link>
       </li>
       <li>
-        <router-link to="/guitars">GUITARRAS</router-link> 
+        <router-link to="/guitars">GUITARRAS</router-link>
       </li>
       <li>
         <router-link to="/amps">AMPLIFICADORES</router-link>
@@ -17,14 +17,12 @@
         <router-link to="/acoustic">VIOLÕES</router-link>
       </li>
       <li class="multimidia">
-        <a href="">MULTIMÍDIA</a
-        ><i
-          onmouseover="icon='fas fa-times'" :class="icon"
-        ></i>
-        <div class="multimidia-column">
-          <a href="">GALERIA DE FOTOS</a><br />
-          <a href="">GALERIA DE VÍDEOS</a>
-        </div>
+        <router-link to="">MULTIMÍDIA</router-link>
+        <i onmouseover="icon='fas fa-times'" :class="icon"></i>
+        <ul class="multimidia-column">
+          <li><router-link to="/photos">GALERIA DE FOTOS</router-link></li>
+          <li><router-link to="/">GALERIA DE VÍDEOS</router-link></li>
+        </ul>
       </li>
       <li>
         <router-link to="/atendimento">ATENDIMENTO</router-link>
@@ -41,7 +39,7 @@ export default {
       // arrowDown: "fas fa-arrow-down",
       // closeBtn: "fas fa-times",
       // multimidiaHover: true,
-      icon: "fas fa-arrow-down"
+      icon: "fas fa-arrow-down",
     };
   },
   methods: {
@@ -65,7 +63,7 @@ nav {
   display: none;
   background: #42b983;
   padding: 5px;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: example;
 }
 
@@ -92,7 +90,7 @@ a {
   font-weight: 700;
 }
 
-a:active {
+li:active {
   color: rgb(56, 56, 56);
 }
 
