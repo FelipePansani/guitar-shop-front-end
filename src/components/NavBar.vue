@@ -2,24 +2,32 @@
   <nav>
     <ul>
       <li>
-        <a href="">HOME</a>
+        <router-link to="/">HOME</router-link> 
       </li>
       <li>
-         <router-link to="/guitars">bezKoder</router-link>
-        <!-- <a href="http://localhost:8080/guitars">GUITARRAS</a> -->
+        <router-link to="/guitars">GUITARRAS</router-link> 
       </li>
       <li>
-        <a href="">AMPLIFICADORES</a>
+        <router-link to="/amps">AMPLIFICADORES</router-link>
       </li>
       <li>
-        <a href="">BAIXOS</a>
+        <router-link to="/basses">BAIXOS</router-link>
       </li>
       <li>
-        <a href="">VIOLÕES</a>
+        <router-link to="/acoustic">VIOLÕES</router-link>
       </li>
-      <li><a href="">MULTIMÍDIA</a><i class="fas fa-arrow-down"></i></li>
+      <li class="multimidia">
+        <a href="">MULTIMÍDIA</a
+        ><i
+          onmouseover="icon='fas fa-times'" :class="icon"
+        ></i>
+        <div class="multimidia-column">
+          <a href="">GALERIA DE FOTOS</a><br />
+          <a href="">GALERIA DE VÍDEOS</a>
+        </div>
+      </li>
       <li>
-        <a href="">ATENDIMENTO</a>
+        <router-link to="/atendimento">ATENDIMENTO</router-link>
       </li>
     </ul>
   </nav>
@@ -28,6 +36,22 @@
 <script>
 export default {
   name: "TopBar",
+  data() {
+    return {
+      // arrowDown: "fas fa-arrow-down",
+      // closeBtn: "fas fa-times",
+      // multimidiaHover: true,
+      icon: "fas fa-arrow-down"
+    };
+  },
+  methods: {
+    Hover() {
+      this.icon = "fas fa-times";
+    },
+    notHover() {
+      this.icon = "fas fa-arrow-down";
+    },
+  },
 };
 </script>
 
@@ -36,15 +60,21 @@ nav {
   background: #42b983;
 }
 
-.fas.fa-arrow-down {
-  margin-left: 8px;
-  color: white;
-  background: transparent;
-  border: none;
+.multimidia-column {
+  position: absolute;
+  display: none;
+  background: #42b983;
+  padding: 5px;
+  animation-duration: 1s;
+  animation-name: example;
 }
 
-i:hover i{
-  display: none;
+.multimidia:hover .multimidia-column {
+  display: block;
+}
+
+i {
+  color: white;
 }
 
 ul {
@@ -59,5 +89,19 @@ li {
 a {
   text-decoration: none;
   color: white;
+  font-weight: 700;
+}
+
+a:active {
+  color: rgb(56, 56, 56);
+}
+
+@keyframes example {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

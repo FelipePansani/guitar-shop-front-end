@@ -1,49 +1,66 @@
 <template>
   <div>
-    <img
-      class="carousel-img"
-      src="../../media/Guitar-Rig-6.jpg"
-      alt="Carousel-img"
-    /><br />
-    <button></button>
-    <button></button>
-
-  
+    <div class="main-carousel" v-bind:imgPath="imgPath">
+      <img class="carousel-img" :src="imgPath" alt="Image" />
+      <div class="carousel-navigation">
+        <input checked="true" type="radio" name="dot-btns" @click="setPic(1)" />
+        <input type="radio" name="dot-btns" @click="setPic(2)" />
+        <input type="radio" name="dot-btns" @click="setPic(3)" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Main",
+  name: "MainCarousel",
+  data() {
+    return {
+      imgPath: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+    };
+  },
+  methods: {
+    setPic (id) {
+      if (id == 1) {
+        return (this.imgPath = "https://www.twotone.com.br/images/ZAKKZV.jpg");
+      } else if (id == 2) {
+        return (this.imgPath =
+          "https://www.twotone.com.br/images/67.jpg");
+      } else if (id == 3) {
+        return (this.imgPath =
+          "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg");
+      } else {
+        return;
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
-div {
-  margin-top: -16px;
+.main-carousel {
   background: rgb(56, 56, 56);
   color: white;
   padding: 10px;
   text-align: center;
-}
-
-button {
-  font-size: large;
-  border-radius: 100%;
-}
-
-.main-item {
-  display: inline-block;
-  height: 180px;
-  margin: 15px;
+  margin-bottom: 10px;
 }
 
 .carousel-img {
-  height: 320px;
-  /* width: 80%; */
+  animation-duration: 1s;
+  animation-name: example;
 }
 
-.bottom-info div {
-  display: inline-block;
+.carousel-navigation input {
+  display: inline;
+}
+
+@keyframes example {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

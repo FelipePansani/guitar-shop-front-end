@@ -1,14 +1,25 @@
 <template>
   <div id="app">
-    <router-view/>
+    <TopBar />
+    <NavBar />
+    <GuitarBrands />
+    <Footer />
   </div>
 </template>
 
 <script>
+import TopBar from '../components/TopBar.vue'
+import NavBar from '../components/NavBar.vue'
+import GuitarBrands from '../components/GuitarBrands.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
+    TopBar,
+    NavBar,
+    GuitarBrands,
+    Footer
   },
 }
 </script>

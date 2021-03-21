@@ -24,7 +24,7 @@ export default {
   text-align: center;
 }
 a {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .icons {

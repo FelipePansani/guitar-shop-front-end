@@ -1,27 +1,25 @@
 <template>
   <div>
-    <div>
-      <img src="../../media/twotone-rancher.jpg" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-    </div>
+    <div style="display:inline" v-for="image in images" :key="image.id">
+      <img :src="image.path" alt="">
+    </div><br><br>
 
     <div class="bottom-info">
-      <div>
+      <div class="column">
         <h3>ENDEREÇO</h3>
         <p>
           Rua Cristiano Viana, 549<br />
           Pinheiros - São Paulo-SP CEP: 05411-000
         </p>
       </div>
-      <div>
+      <div class="column">
         <h3>HORÁRIOS</h3>
         <p>
           Segunda à Sexta 10h00 às 19h00<br /><br />
           Sábados 10h00 às 14h00
         </p>
       </div>
-      <div>
+      <div class="column">
         <h3>ATENDIMENTO</h3>
         <p>
           Telefone (11) 3081-6600<br /><br />
@@ -29,10 +27,11 @@
           atendimento@twotone.com.br
         </p>
       </div>
-      <div>
+      <div class="column">
         <h3>NEWSLETTER</h3>
         <label for="email">Email *</label><br />
-        <input type="search" placeholder="" />
+        <input type="search" placeholder="" /><br><br>
+        <button>ASSINAR</button>
       </div>
     </div>
   </div>
@@ -41,6 +40,21 @@
 <script>
 export default {
   name: "Main",
+  data() {
+    return {
+      images: [
+        {
+          path: "https://www.twotone.com.br/images/banners/twotone-rancher.jpg",
+        },
+        {
+          path: "https://www.twotone.com.br/images/banners/twotone_baixos.jpg",
+        },
+        {
+          path: "https://www.twotone.com.br/images/banners/twotone-violao.jpg",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -53,9 +67,18 @@ div {
   text-align: center;
 }
 
+h3 {
+  font-size: 14px;
+}
+
+.column {
+  text-align: left;
+  max-width: 200px;
+  left: 0%;
+}
+
 button {
   font-size: large;
-  border-radius: 100%;
 }
 
 .main-item {
@@ -64,9 +87,11 @@ button {
   margin: 15px;
 }
 
-.carousel-img {
+img {
   height: 320px;
-  /* width: 80%; */
+  border: 3px solid white;
+  display: inline;
+  width: 380px;
 }
 
 .bottom-info div {
