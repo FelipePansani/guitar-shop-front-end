@@ -2,7 +2,7 @@
   <div id="app">
     <TopBar />
     <NavBar />
-    <GuitarBrands />
+    <BrandsPage :category="Category"/>
     <BottomInfo />
     <Footer />
   </div>
@@ -11,16 +11,21 @@
 <script>
 import TopBar from '../components/TopBar.vue'
 import NavBar from '../components/NavBar.vue'
-import GuitarBrands from '../components/GuitarBrands.vue'
+import BrandsPage from './BrandsPage.vue'
 import BottomInfo from '../components/BottomInfo.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      Category: "guitars"
+    }
+  },
   components: {
     TopBar,
     NavBar,
-    GuitarBrands,
+    BrandsPage,
     BottomInfo,
     Footer
   },

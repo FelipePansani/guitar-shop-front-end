@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="display:inline" v-for="image in images" :key="image.id">
-      <img :src="image.path" alt="">
+      <a href=""><img :src="image.path" alt=""></a>
     </div><br><br>
   </div>
 </template>

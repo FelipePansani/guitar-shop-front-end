@@ -16,12 +16,13 @@
       <li>
         <router-link to="/acoustic">VIOLÕES</router-link>
       </li>
-      <li class="multimidia">
+      <li @mouseover="icon='fas fa-times'" @mouseleave="icon='fas fa-arrow-down'"
+       class="multimidia">
         <router-link to="">MULTIMÍDIA</router-link>
-        <i onmouseover="icon='fas fa-times'" :class="icon"></i>
+        <i :class="icon"></i>
         <ul class="multimidia-column">
           <li><router-link to="/photos">GALERIA DE FOTOS</router-link></li>
-          <li><router-link to="/">GALERIA DE VÍDEOS</router-link></li>
+          <li><router-link to="https://www.youtube.com/">GALERIA DE VÍDEOS</router-link></li>
         </ul>
       </li>
       <li>
@@ -36,19 +37,9 @@ export default {
   name: "TopBar",
   data() {
     return {
-      // arrowDown: "fas fa-arrow-down",
-      // closeBtn: "fas fa-times",
-      // multimidiaHover: true,
       icon: "fas fa-arrow-down",
+      isActive: true
     };
-  },
-  methods: {
-    Hover() {
-      this.icon = "fas fa-times";
-    },
-    notHover() {
-      this.icon = "fas fa-arrow-down";
-    },
   },
 };
 </script>
@@ -64,7 +55,7 @@ nav {
   background: #42b983;
   padding: 5px;
   animation-duration: 0.5s;
-  animation-name: example;
+  animation-name: fade-in;
 }
 
 .multimidia:hover .multimidia-column {
@@ -72,6 +63,7 @@ nav {
 }
 
 i {
+  margin-left: 5px;
   color: white;
 }
 
@@ -90,11 +82,12 @@ a {
   font-weight: 700;
 }
 
-li:active {
+.active {
   color: rgb(56, 56, 56);
+  font-size: 50px
 }
 
-@keyframes example {
+@keyframes fade-in {
   from {
     opacity: 0.1;
   }

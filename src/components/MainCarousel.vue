@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="main-carousel" v-bind:imgPath="imgPath">
-      <img class="carousel-img" :src="imgPath" alt="Image" />
+    <div class="main-carousel" :key="images.id">
+      <img class="carousel-img" :src="currentImage" alt="Image" />
       <div class="carousel-navigation">
-        <input checked="true" type="radio" name="dot-btns" @click="setPic(1)" />
-        <input type="radio" name="dot-btns" @click="setPic(2)" />
-        <input type="radio" name="dot-btns" @click="setPic(3)" />
+        <input :checked="true" type="radio" name="dot-btns" @click="setPic(1)" />
+        <input :checked="false" type="radio" name="dot-btns" @click="setPic(2)" />
+        <input :checked="false" type="radio" name="dot-btns" @click="setPic(3)" />
       </div>
     </div>
   </div>
@@ -16,23 +16,49 @@ export default {
   name: "MainCarousel",
   data() {
     return {
-      imgPath: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+      currentImage: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+      images: [
+        {
+          id: 1,
+          imgPath: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+        },
+        {
+          id: 2,
+          imgPath: "https://www.twotone.com.br/images/67.jpg",
+        },
+        {
+          id: 3,
+          imgPath:
+            "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg",
+        },
+      ],
     };
   },
+
   methods: {
-    setPic (id) {
-      if (id == 1) {
-        return (this.imgPath = "https://www.twotone.com.br/images/ZAKKZV.jpg");
-      } else if (id == 2) {
-        return (this.imgPath =
-          "https://www.twotone.com.br/images/67.jpg");
-      } else if (id == 3) {
-        return (this.imgPath =
-          "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg");
-      } else {
-        return;
-      }
+    setPic(id) {
+      this.currentImage = this.images.find((item) => item.id == id).imgPath;
     },
+    myCounter(number) {
+      setInterval(() => {
+        if (number == 0) {
+          this.currentImage = "https://www.twotone.com.br/images/ZAKKZV.jpg";
+          number++;
+        } else if (number == 1) {
+          this.currentImage = "https://www.twotone.com.br/images/67.jpg";
+          number++;
+        } else if (number == 2) {
+          this.currentImage =
+            "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg";
+          number = 0;
+        } else {
+          return "err";
+        }
+      }, 3000);
+    },
+  },
+  mounted() {
+    this.myCounter(0);
   },
 };
 </script>

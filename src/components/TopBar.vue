@@ -1,27 +1,32 @@
 <template>
   <div class="top-bar">
-    <div class="icons">
-      <a href="https://pt-br.facebook.com/"><i class="fab fa-facebook-square"></i></a>
-      <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a>
-      <a href="https://www.youtube.com/"><i style="font-size: 32px" class="fab fa-youtube"></i></a>
-    </div>
+    <span class="one">
+      <div class="icons">
+        <a href="https://pt-br.facebook.com/"
+          ><i class="fab fa-facebook-square"></i
+        ></a>
+        <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a>
+        <a href="https://www.youtube.com/"
+          ><i style="font-size: 32px" class="fab fa-youtube"></i
+        ></a>
+      </div>
+    </span>
     <a href=""><h1>Single Tone</h1></a>
     <input type="text" placeholder="Digite aqui..." />
   </div>
 </template>
 
 <script>
-
 export default {
   name: "TopBar",
 };
 </script>
 
 <style scoped>
-
 .top-bar {
   padding: 50px;
   columns: 3;
+  background: transparent;
 }
 
 a {
@@ -47,4 +52,8 @@ h1 {
   text-align: center;
 }
 
+.one {
+  height: 33%;
+  background-color: greenyellow;
+}
 </style>

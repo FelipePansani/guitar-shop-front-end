@@ -40,11 +40,6 @@ const routes = [
     name: 'Photos',
     component: () => import('../views/Photos.vue')
   },
-  {
-    path: '/category/:brand/',
-    name: 'Category',
-    component: () => import('../views/Category.vue')
-  }
 ]
 
 const router = new VueRouter({

@@ -2,7 +2,7 @@
   <div id="app">
     <TopBar />
     <NavBar />
-    <AcousticBrands />
+    <BrandsPage :category="Category"/>
     <BottomInfo />
     <Footer />
   </div>
@@ -11,16 +11,21 @@
 <script>
 import TopBar from '../components/TopBar.vue'
 import NavBar from '../components/NavBar.vue'
-import AcousticBrands from '../components/AcousticBrands.vue'
+import BrandsPage from './BrandsPage.vue'
 import BottomInfo from '../components/BottomInfo.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      Category: "acoustic"
+    }
+  },
   components: {
     TopBar,
     NavBar,
-    AcousticBrands,
+    BrandsPage,
     BottomInfo,
     Footer
   },
