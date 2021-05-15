@@ -30,7 +30,6 @@ export default {
 <style scoped>
 div {
   margin-top: -16px;
-  background: rgb(56, 56, 56);
   color: white;
   padding: 10px;
   text-align: center;

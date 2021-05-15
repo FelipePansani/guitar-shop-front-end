@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar />
+    <NavBar :Active="'atendimento'"/>
     <div class="form">
       <h3>
         Entre em contato conosco.br <br />Os campos marcados com * são de
@@ -52,6 +52,10 @@ import NavBar from "../components/NavBar.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+    }
+  },
   components: {
     TopBar,
     NavBar,

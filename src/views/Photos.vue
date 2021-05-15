@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar />
+    <NavBar :Active="'multimidia'"/>
     <div class="photo-section">
       <h2>PRS - Arquivo</h2>
       <img
@@ -56,7 +56,6 @@ import BottomInfo from "../components/BottomInfo.vue";
 import Footer from "../components/Footer.vue";
 
 export default {
-  name: "App",
   components: {
     TopBar,
     NavBar,
@@ -64,7 +63,9 @@ export default {
     Footer,
   },
   data() {
-    return {};
+    return {
+      Category: "Photos"
+    };
   },
 };
 </script>

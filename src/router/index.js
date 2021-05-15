@@ -31,6 +31,16 @@ const routes = [
     component: () => import('../views/Acoustic.vue')
   },
   {
+    path: '/:category/:brand',
+    name: 'ItemsBrand',
+    component: () => import('../views/ItemsBrand.vue')
+  },
+  {
+    path: '/:category/item/:id',
+    name: 'Item',
+    component: () => import('../views/Item.vue')
+  },
+  {
     path: '/atendimento',
     name: 'Atendimento',
     component: () => import('../views/Atendimento.vue')

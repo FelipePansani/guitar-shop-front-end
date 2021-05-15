@@ -43,6 +43,7 @@ export default {
   color: white;
   padding: 20px;
   margin-left: 50px;
+  
 }
 
 .column {

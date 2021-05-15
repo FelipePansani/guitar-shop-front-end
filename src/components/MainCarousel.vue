@@ -1,11 +1,20 @@
 <template>
-  <div>
-    <div class="main-carousel" :key="images.id">
-      <img class="carousel-img" :src="currentImage" alt="Image" />
-      <div class="carousel-navigation">
-        <input :checked="true" type="radio" name="dot-btns" @click="setPic(1)" />
-        <input :checked="false" type="radio" name="dot-btns" @click="setPic(2)" />
-        <input :checked="false" type="radio" name="dot-btns" @click="setPic(3)" />
+  <div class="main">
+    <div style="display: inline-block" :key="image.id" v-for="image in images">
+      <div>
+        <img
+          v-if="image.checked === true"
+          :src="image.imgPath"
+          alt="Image not available"
+        />
+      </div>
+
+      <div class="button-row">
+        <button
+          :class="{ active: image.checked }"
+          @click="selectImg(image.id)"
+          :checked="image.checked"
+        ></button>
       </div>
     </div>
   </div>
@@ -16,77 +25,97 @@ export default {
   name: "MainCarousel",
   data() {
     return {
-      currentImage: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+      number: 1,
       images: [
         {
           id: 1,
-          imgPath: "https://www.twotone.com.br/images/ZAKKZV.jpg",
+          imgPath: "https://i.ibb.co/0nmw3rZ/ZAKKZV.jpg",
+          checked: true,
         },
         {
           id: 2,
-          imgPath: "https://www.twotone.com.br/images/67.jpg",
+          imgPath: "https://i.ibb.co/jgKr4J7/FCSLM.jpg",
+          checked: false,
         },
         {
           id: 3,
-          imgPath:
-            "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg",
+          imgPath: "https://i.ibb.co/cT5gGK1/SVER.jpg",
+          checked: false,
         },
       ],
     };
   },
-
+  computed: {},
   methods: {
-    setPic(id) {
-      this.currentImage = this.images.find((item) => item.id == id).imgPath;
-    },
-    myCounter(number) {
-      setInterval(() => {
-        if (number == 0) {
-          this.currentImage = "https://www.twotone.com.br/images/ZAKKZV.jpg";
-          number++;
-        } else if (number == 1) {
-          this.currentImage = "https://www.twotone.com.br/images/67.jpg";
-          number++;
-        } else if (number == 2) {
-          this.currentImage =
-            "https://www.twotone.com.br/images/twotone/2020/banner/banner-seizi-relic.jpg";
-          number = 0;
-        } else {
-          return "err";
-        }
-      }, 3000);
+    selectImg(id) {
+      this.images.find((item) => item.id == id).checked = true;
+      this.images
+        .filter((item) => item.id !== id)
+        .map((item) => (item.checked = false));
+      this.number = id;
     },
   },
   mounted() {
-    this.myCounter(0);
+    setInterval(() => {
+      this.images.find((item) => item.id == this.number).checked = true;
+      this.images
+        .filter((item) => item.id !== this.number)
+        .map((item) => (item.checked = false));
+      if (this.number > 2) {
+        this.number = 1;
+      } else {
+        this.number++;
+      }
+    }, 4000);
   },
 };
 </script>
 
 <style scoped>
-.main-carousel {
-  background: rgb(56, 56, 56);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  margin-bottom: 10px;
+.main {
+  width: 100%;
 }
 
-.carousel-img {
+.main img {
+  position: absolute;
+  top: 46vh;
+  left: 6%;
   animation-duration: 1s;
-  animation-name: example;
+  animation-name: fade-in;
 }
 
-.carousel-navigation input {
-  display: inline;
+.button-row {
+  position: relative;
+  left: 46vw;
+  top: 54vh;
+  bottom: 1vh;
 }
 
-@keyframes example {
+.button-row button {
+  width: 14px;
+  height: 15px;
+  margin-right: 0.5vw;
+  border: none;
+  border-radius: 30px;
+}
+
+.active {
+  background: #42b983;
+}
+
+@keyframes fade-in {
   from {
     opacity: 0.1;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button-row {
+    top: 30vh;
   }
 }
 </style>

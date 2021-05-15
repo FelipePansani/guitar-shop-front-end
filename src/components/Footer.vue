@@ -4,13 +4,18 @@
       Copyright © 2021 Single Tone - Todos os direitos reservados. Desenvolvido
       por <span>Felipe Pansani.</span>
     </h5>
-    <a href="#top"><i class="fas fa-arrow-circle-up"></i></a>
+    <a v-on:click="toTop()"><i class="fas fa-arrow-circle-up"></i></a>
   </div>
 </template>
 
 <script>
 export default {
   name: "Footer",
+  methods: {
+    toTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+  },
 };
 </script>
 
@@ -23,6 +28,7 @@ div {
   padding-left: 40px;
   color: white;
   columns: 2;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -31,9 +37,15 @@ a {
   font-size: 30px;
   text-align: right;
   right: 80px;
+  cursor: pointer;
+}
+
+i:hover {
+  color: gray;
 }
 
 span {
   color: #42b983;
 }
+
 </style>

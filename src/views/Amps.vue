@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar />
+    <NavBar :Active="Category" />
     <BrandsPage :category="Category"/>
     <BottomInfo />
     <Footer />
@@ -11,7 +11,7 @@
 <script>
 import TopBar from '../components/TopBar.vue'
 import NavBar from '../components/NavBar.vue'
-import BrandsPage from './BrandsPage.vue'
+import BrandsPage from '../components/CategoryComponent.vue'
 import BottomInfo from '../components/BottomInfo.vue'
 import Footer from '../components/Footer.vue'
 

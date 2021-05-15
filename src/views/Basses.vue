@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar />
-    <BrandsPage :category="Category"/>
+    <NavBar :Active="Category" />
+    <CategoryComponent :category="Category"/>
     <BottomInfo />
     <Footer />
   </div>
@@ -11,7 +11,7 @@
 <script>
 import TopBar from '../components/TopBar.vue'
 import NavBar from '../components/NavBar.vue'
-import BrandsPage from './BrandsPage.vue'
+import CategoryComponent from '../components/CategoryComponent.vue'
 import BottomInfo from '../components/BottomInfo.vue'
 import Footer from '../components/Footer.vue'
 
@@ -19,13 +19,13 @@ export default {
   name: 'App',
   data() {
     return {
-      Category: "Basses"
+      Category: "basses"
     }
   },
   components: {
     TopBar,
     NavBar,
-    BrandsPage,
+    CategoryComponent,
     BottomInfo,
     Footer
   },

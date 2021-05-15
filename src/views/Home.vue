@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar />
+    <NavBar :Active="'Home'"/>
     <MainCarousel />
     <Main />
     <BottomImages />
@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import TopBar from '../components/TopBar.vue'
-import NavBar from '../components/NavBar.vue'
-import MainCarousel from '../components/MainCarousel.vue'
-import Main from '../components/Main.vue'
-import BottomImages from '../components/BottomImages.vue'
-import BottomInfo from '../components/BottomInfo.vue'
-import Footer from '../components/Footer.vue'
+import TopBar from "../components/TopBar.vue";
+import NavBar from "../components/NavBar.vue";
+import MainCarousel from "../components/MainCarousel.vue";
+import Main from "../components/Main.vue";
+import BottomImages from "../components/BottomImages.vue";
+import BottomInfo from "../components/BottomInfo.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "Home",
   components: {
     TopBar,
     NavBar,
@@ -28,22 +28,14 @@ export default {
     Main,
     BottomImages,
     BottomInfo,
-    Footer
+    Footer,
   },
-}
+};
 </script>
 
-<style>
+<style scoped>
 body {
   margin: 0;
-  background: rgb(56, 56, 56);
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 0px;
+  background-image: url("https://media.istockphoto.com/photos/black-carpet-texture-background-picture-id1152927438?k=6&m=1152927438&s=170667a&w=0&h=_pSIXPjBH4RswBbTGUCnbpBi5SAcOOS_3yQ4QnIM-AM=");
 }
 </style>
