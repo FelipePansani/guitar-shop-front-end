@@ -42,8 +42,7 @@ export default {
 .bottom-info {
   color: white;
   padding: 20px;
-  margin-left: 50px;
-  
+  text-align: center;
 }
 
 .column {
@@ -65,9 +64,16 @@ button {
   padding: 10px;
 }
 
-input {
+/* input {
   height: 40px;
   width: 260px;
+} */
+
+@media screen and (max-width: 768px) {
+  .column {
+    display: block;
+    margin: 0;
+  }
 }
 
 </style>

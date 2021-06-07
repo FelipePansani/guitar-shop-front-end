@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopLinks :category="Category" />
+    <TopLinks :category="Category" :brand='""'/> 
     <div class="brand-box">
       <div class="brand-box-top">
         <h3>{{ Category.charAt(0).toUpperCase() + Category.substring(1) }}</h3>

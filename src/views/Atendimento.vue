@@ -43,12 +43,16 @@
         <input type="submit" value="Enviar" />
       </form>
     </div>
+    <BottomInfo />
+    <Footer />
   </div>
 </template>
 
 <script>
 import TopBar from "../components/TopBar.vue";
 import NavBar from "../components/NavBar.vue";
+import BottomInfo from "../components/BottomInfo.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "App",
@@ -59,11 +63,14 @@ export default {
   components: {
     TopBar,
     NavBar,
+    BottomInfo,
+    Footer,
   },
 };
 </script>
 
 <style scoped>
+
 .form {
   color: white;
   padding: 40px;

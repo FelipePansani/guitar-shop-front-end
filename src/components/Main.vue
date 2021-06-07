@@ -2,43 +2,37 @@
   <div class="body">
     <h2>CONFIRA O QUE ACABOU DE CHEGAR</h2>
 
-    <!-- <transition-group style="position: absolute" mode="in-out" name="fade" appear>
-    <div :style="`transition-delay:${item.id/8}s; position: relative`"
-      class="carousel-imgs"
-      v-for="item in first === true ? firstRow : secondRow"
-      v-bind:key="item.id"
-    >
-      <img :src="item.imgPath" :title="item.brand + ' ' + item.model" />
-    </div>
-
-  </transition-group> -->
-
-    <transition name="fade" appear>
-      <div v-if="first == true">
-          <div
-            :style="`transition-delay:${item.id / 12}s; position: relative`"
-            style="display: inline"
-            :key="item.id"
-            v-for="item in firstRow"
-          >
-            <img :src="item.imgPath" alt="" />
-          </div>
-      </div>
-
-      <div v-else>
-          <div
-            :style="`transition-delay:${item.id / 6}s; position: relative`"
-            style="display: inline"
-            :key="item.id"
-            v-for="item in secondRow"
-          >
-            <img :src="item.imgPath" alt="" />
-          </div>
+    <transition name="fade" mode="out-in" appear>
+      <div :key="first">
+        <div v-if="first === true">
+          <transition-group name="fade" appear>
+            <div
+              :style="`transition-delay:${item.id / 9}s; `"
+              style="display: inline"
+              :key="item.id"
+              v-for="item in firstRow"
+            >
+              <img :src="item.imgPath" alt="" />
+            </div>
+          </transition-group>
+        </div>
+        <div v-else>
+          <transition-group name="fade" appear>
+            <div
+              :style="`transition-delay:${item.id / 9}s; `"
+              style="display: inline"
+              :key="item.id"
+              v-for="item in secondRow"
+            >
+              <img :src="item.imgPath" alt="" />
+            </div>
+          </transition-group>
+        </div>
       </div>
     </transition>
 
-    <button :class="{ active: first }" @click="setRow(1)"></button>
-    <button :class="{ active: !first }" @click="setRow(2)"></button>
+    <button :class="{ active: first }" @click="first = true"></button>
+    <button :class="{ active: !first }" @click="first = false"></button>
   </div>
 </template>
 
@@ -63,14 +57,8 @@ export default {
     },
   },
   methods: {
-    setRow(id) {
-      if (id == 1) {
-        return (this.first = true);
-      } else if (id == 2) {
-        return (this.first = false);
-      } else {
-        return;
-      }
+    autoSlide() {
+      setInterval(() => (this.first = !this.first), 8000);
     },
   },
   mounted() {
@@ -78,14 +66,7 @@ export default {
       .get(`http://localhost:3000/guitars`)
       .then((res) => (this.info = res.data));
 
-    setInterval(() => {
-      this.setRow(this.number);
-      if (this.number > 2) {
-        this.number = 1;
-      } else {
-        this.number++;
-      }
-    }, 6000);
+    this.autoSlide();
   },
 };
 </script>
@@ -93,7 +74,7 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.6s;
 }
 .fade-enter,
 .fade-leave-to {
@@ -101,16 +82,12 @@ export default {
 }
 
 .body {
-  margin-top: 50vh;
   color: white;
   padding: 10px;
   text-align: center;
-  margin-bottom: 30vh;
-  height: 10vh;
 }
 
 button {
-  position: relative;
   height: 15px;
   width: 14px;
   margin-right: 0.5vw;
@@ -121,7 +98,6 @@ button {
 .active {
   background: #42b983;
 }
-
 .carousel-imgs {
   height: 170px;
   display: inline-block;
@@ -133,5 +109,12 @@ img {
   margin: 8px;
   text-align: right;
   opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    height: 60px;
+    width: 50px;
+  }
 }
 </style>

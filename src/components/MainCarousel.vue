@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div style="display: inline-block" :key="image.id" v-for="image in images">
+    <div :key="image.id" v-for="image in images">
       <div>
         <img
           v-if="image.checked === true"
@@ -8,15 +8,29 @@
           alt="Image not available"
         />
       </div>
+    </div>
 
-      <div class="button-row">
+    <!-- <div class="button-row">
+      <button @click="selectImg(1)"></button>
+      <button @click="selectImg(2)"></button>
+      <button @click="selectImg(3)"></button>
+    </div> -->
+
+    <div class="button-row" :key="image.id" v-for="image in images">
+      <button
+        :class="{ active: image.checked }"
+        @click="selectImg(image.id)"
+        :checked="image.checked"
+      ></button>
+    </div>
+
+    <!-- <div class="button-row">
         <button
           :class="{ active: image.checked }"
           @click="selectImg(image.id)"
           :checked="image.checked"
         ></button>
-      </div>
-    </div>
+      </div> -->
   </div>
 </template>
 
@@ -73,22 +87,19 @@ export default {
 
 <style scoped>
 .main {
-  width: 100%;
+  /* width: 100%; */
+  text-align: center;
 }
 
 .main img {
-  position: absolute;
-  top: 46vh;
-  left: 6%;
   animation-duration: 1s;
   animation-name: fade-in;
+  width: 90vw;
+  top: 60vh;
 }
 
 .button-row {
-  position: relative;
-  left: 46vw;
-  top: 54vh;
-  bottom: 1vh;
+  display: inline;
 }
 
 .button-row button {
@@ -113,9 +124,14 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .button-row {
-    top: 30vh;
+/* @media screen and (max-width: 768px) {
+  .main img {
+    width: 90vw;
+    top: 60vh;
   }
-}
+
+  .button-row {
+    top: 15vh;
+  }
+} */
 </style>

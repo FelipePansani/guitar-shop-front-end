@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar />
-    <NavBar :Active="'multimidia'"/>
+    <NavBar :Active="'multimidia'" />
     <div class="photo-section">
       <h2>PRS - Arquivo</h2>
       <img
@@ -20,27 +20,6 @@
       <h2>PRS - Private Stock</h2>
       <img
         src="https://www.twotone.com.br/images/galeria-de-fotos/prs-privatestock.jpg"
-        alt=""
-      />
-    </div>
-    <div class="photo-section">
-      <h2>PRS - Violões e Amplificadores</h2>
-      <img
-        src="https://www.twotone.com.br/images/galeria-de-fotos/prs-violoes-e-amplificadores.jpg"
-        alt=""
-      />
-    </div>
-    <div class="photo-section">
-      <h2>Gibson Tour - Custom</h2>
-      <img
-        src="https://www.twotone.com.br/images/galeria-de-fotos/gibson-tour-custom/gibson-custom15b.jpg"
-        alt=""
-      />
-    </div>
-    <div class="photo-section">
-      <h2>Gibson Tour - USA</h2>
-      <img
-        src="https://www.twotone.com.br/images/galeria-de-fotos/gibson-tour-usa/gibsonusa54.jpg"
         alt=""
       />
     </div>
@@ -64,7 +43,8 @@ export default {
   },
   data() {
     return {
-      Category: "Photos"
+      Category: "Photos",
+      PhotoSections: [{}],
     };
   },
 };

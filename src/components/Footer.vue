@@ -22,21 +22,21 @@ export default {
 <style scoped>
 div {
   background: rgb(20, 20, 20);
-  height: 100px;
-  margin-bottom: 0px;
-  padding-top: 80px;
-  padding-left: 40px;
+  padding: 60px;
   color: white;
-  columns: 2;
   scroll-behavior: smooth;
+  /* width: auto; */
+}
+
+h5,
+a {
+  display: inline;
 }
 
 a {
-  position: absolute;
   color: #42b983;
   font-size: 30px;
-  text-align: right;
-  right: 80px;
+  margin-left: 40%;
   cursor: pointer;
 }
 
@@ -48,4 +48,16 @@ span {
   color: #42b983;
 }
 
+@media screen and (max-width: 768px) {
+  div {
+    font-size: 0.8rem;
+    break-after: right;
+    padding: 40px;
+  }
+  
+  h5,
+  a {
+    display: block;
+  }
+}
 </style>

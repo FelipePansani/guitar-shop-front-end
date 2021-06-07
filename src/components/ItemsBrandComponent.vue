@@ -1,8 +1,9 @@
 <template>
   <div>
-    <TopLinks :category="Category" :brand="Brand"/>
+    <TopLinks :category="Category" :brand="Brand" />
     <div class="brand-logo-box">
-      <img :src="brandImage" alt="">
+      <h1>{{ Brand.brandImage }}</h1>
+      <img :src="brandImage" alt="" />
     </div>
     <div class="items-box">
       <div class="item" :key="item.id" v-for="item in info">
@@ -32,11 +33,11 @@
 
 <script>
 import axios from "axios";
-import TopLinks from "./TopLinks"
+import TopLinks from "./TopLinks";
 
 export default {
   components: {
-  TopLinks
+    TopLinks,
   },
   props: ["Brand", "Category"],
   data() {
@@ -62,13 +63,14 @@ export default {
 
 <style scoped>
 h1,
-h3, 
+h3,
 h5,
 p {
   color: white;
 }
 
-a, i {
+a,
+i {
   color: #42b983;
 }
 
@@ -116,5 +118,4 @@ a, i {
 .product-title:hover {
   color: #42b983;
 }
-
 </style>>

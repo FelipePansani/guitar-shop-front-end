@@ -1,11 +1,17 @@
 <template>
   <div>
     <div class="top-links">
-      <i class="fas fa-map-marker-alt"
-        ><a :href="`../../${Category}`"><h5>{{ Category.charAt(0).toUpperCase() + Category.substring(1)}}</h5></a></i
+      <i v-show="true" class="fas fa-map-marker-alt"
+        ><a :href="`../../${Category}`"
+          ><h5>
+            {{ Category.charAt(0).toUpperCase() + Category.substring(1) }}
+          </h5></a
+        ></i
       >
       <i v-show="Brand !== undefined" class="fas fa-chevron-right"
-        ><a v-show="Brand !== undefined"  :href="`../../${Category+'/'+lowerCaseBrand}`"><h5>{{ Brand.charAt(0).toUpperCase() + Brand.substring(1) }}</h5></a></i
+        ><a :href="`../../${Category + '/' + lowerCaseBrand}`"
+          ><h5>{{ Brand.charAt(0).toUpperCase() + Brand.substring(1) }}</h5></a
+        ></i
       >
       <i v-show="Item !== undefined" class="fas fa-chevron-right"
         ><h5>{{ Item }}</h5></i
@@ -19,9 +25,10 @@ export default {
   props: ["Category", "Brand", "Item"],
   data() {
     return {
-      lowerCaseBrand: this.Brand.charAt(0).toLowerCase() + this.Brand.substring(1)
-    }
-  }
+      lowerCaseBrand:
+        this.Brand.charAt(0).toLowerCase() + this.Brand.substring(1),
+    };
+  },
 };
 </script>
 
@@ -39,7 +46,7 @@ i {
 
 .top-links {
   position: relative;
-  margin: 10px 10px 30px 100px;
+  margin: 10px 0px 30px 100px;
   height: 30px;
   margin-top: 0;
 }

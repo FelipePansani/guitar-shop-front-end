@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <div style="display:inline" v-for="image in images" :key="image.id">
+  <div class="main">
+    <div class="images" v-for="image in images" :key="image.id">
       <a href=""><img :src="image.path" alt=""></a>
-    </div><br><br>
+    </div>
+    <!-- <br><br> -->
   </div>
 </template>
 
@@ -13,13 +14,13 @@ export default {
     return {
       images: [
         {
-          path: "https://www.twotone.com.br/images/banners/twotone-rancher.jpg",
+          path: "https://i.ibb.co/5x3qpCP/twotone-rancher.jpg",
         },
         {
-          path: "https://www.twotone.com.br/images/banners/twotone_baixos.jpg",
+          path: "https://i.ibb.co/Xt93Fw7/twotone-violao.jpg",
         },
         {
-          path: "https://www.twotone.com.br/images/banners/twotone-violao.jpg",
+          path: "https://i.ibb.co/vDJFg48/twotone-baixos.jpg",
         },
       ],
     };
@@ -28,18 +29,32 @@ export default {
 </script>
 
 <style scoped>
-div {
-  margin-top: -16px;
-  color: white;
-  padding: 10px;
+.main {
   text-align: center;
 }
 
-img {
-  height: 320px;
-  border: 3px solid white;
+.images {
+  color: white;
+  padding: 10px;
   display: inline;
-  width: 380px;
 }
 
+img {
+  margin: 10px 0;
+  height: 320px;
+  border: 3px solid white;
+  width: 320px;
+  /* width: 380px; */
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    /* display: block; */
+  }
+
+  img {
+    /* margin: 10px 0;
+    width: 85%; */
+  }
+}
 </style>

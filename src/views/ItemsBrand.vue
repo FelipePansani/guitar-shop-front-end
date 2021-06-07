@@ -27,7 +27,6 @@ export default {
     return {
       Brand: this.$route.params.brand,
       Category: this.$route.params.category,
-      brandImage: "https://www.twotone.com.br/cache/com_zoo/images/Logo_Gibson_9c8f1809197d7fcf8d59c9f8f98ed77d.jpg",
     };
   },
 };

@@ -1,9 +1,6 @@
 <template>
   <div class="main-nav">
-    <div class="up-bar">
-      <i v-on:click="showMenu()" class="fas fa-bars"></i>
-    </div>
-    <nav :class="{ mobile_nav: isMobile }">
+    <nav>
       <ul>
         <div :key="item.id" v-for="item in NavItems">
           <div v-if="item.EnName == 'multimidia'">
@@ -13,7 +10,7 @@
               class="multimidia"
             >
               <router-link :class="{ active: myActive == item.EnName }" to="">MULTIMÍDIA</router-link>
-              <i :id="{ active: myActive == item.EnName }" :class="icon"></i>
+              <i :style="myActive === item.EnName ? 'color: rgb(56, 56, 56);' : ''" :class="icon"></i>
               <ul class="multimidia-column">
                 <li>
                   <router-link to="/photos">GALERIA DE FOTOS</router-link>
@@ -45,7 +42,6 @@ export default {
     return {
       icon: "fas fa-arrow-down",
       isActive: true,
-      isMobile: false,
       myActive: this.Active,
       NavItems: [
         { id: 1, name: "HOME", EnName: "Home", path: "" },
@@ -74,27 +70,7 @@ export default {
 
 nav {
   background: #42b983;
-}
-
-.mobile_nav {
-  position: fixed;
-  background: #42b983;
-  height: 100%;
-  top: 0;
-  left: 0;
-  width: 34vw;
-  display: block;
-}
-
-.up-bar {
-  position: absolute;
-  background: #42b983;
-  font-size: 28px;
-  width: 100%;
-  margin-left: 0;
-  top: 0;
-  padding: 5px;
-  display: none;
+  height: auto 60px;
 }
 
 .fas.fa-bars {
@@ -133,7 +109,7 @@ ul {
 }
 
 li {
-  margin: 20px 20px;
+  margin: 12px 15px;
 }
 
 div {
@@ -150,9 +126,10 @@ a {
   color: rgb(56, 56, 56);
 }
 
-#active {
+.active i {
   color: rgb(56, 56, 56);
 }
+
 
 @keyframes fade-in {
   from {
@@ -160,15 +137,6 @@ a {
   }
   to {
     opacity: 1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  nav {
-    display: none;
-  }
-  .up-bar {
-    display: block;
   }
 }
 </style>

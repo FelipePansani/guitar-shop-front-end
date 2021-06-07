@@ -14,7 +14,6 @@
       <div class="column2">
         <router-link to="/"
           ><img src="https://i.ibb.co/pQRjMtZ/shield-final.png"
-          
         /></router-link>
       </div>
 
@@ -41,7 +40,7 @@ export default {
   top: 0;
   left: 0;
   position: absolute;
-  background-image: url("https://image.shutterstock.com/image-photo/wood-black-background-texture-blank-260nw-489899377.jpg");
+  background-image: url("https://i.ibb.co/6vfc5Gk/wood-black-background-texture-blank-260nw-489899377.jpg");
   width: 100%;
   height: 5rem;
 }
@@ -97,6 +96,10 @@ export default {
   color: white;
 }
 
+/* .column2 img {
+  width: 40vw;
+} */
+
 .column3 {
   position: absolute;
   width: 30%;
@@ -105,6 +108,11 @@ export default {
   word-wrap: break-word;
   top: 0;
   color: white;
+}
+
+.column3 input {
+  position: absolute;
+  width: 25vw;
 }
 
 img {
@@ -119,5 +127,16 @@ input {
 }
 
 @media screen and (max-width: 768px) {
+  .column1 {
+    position: relative;
+    top: -80px;
+    display: inline-block;
+  }
+/* 
+  .column2 {
+  }
+
+  .column3 {
+  } */
 }
 </style>
