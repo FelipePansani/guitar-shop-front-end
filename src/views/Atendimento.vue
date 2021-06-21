@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar />
+    <TopBar2 />
     <NavBar :Active="'atendimento'"/>
     <div class="form">
       <h3>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import TopBar from "../components/TopBar.vue";
+import TopBar2 from "../components/TopBar2.vue";
 import NavBar from "../components/NavBar.vue";
 import BottomInfo from "../components/BottomInfo.vue";
 import Footer from "../components/Footer.vue";
@@ -61,7 +61,7 @@ export default {
     }
   },
   components: {
-    TopBar,
+    TopBar2,
     NavBar,
     BottomInfo,
     Footer,

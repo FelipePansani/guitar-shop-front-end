@@ -2,8 +2,7 @@
   <div>
     <TopLinks :category="Category" :brand="Brand" />
     <div class="brand-logo-box">
-      <h1>{{ Brand.brandImage }}</h1>
-      <img :src="brandImage" alt="" />
+      <!-- <BrandImages /> -->
     </div>
     <div class="items-box">
       <div class="item" :key="item.id" v-for="item in info">
@@ -23,10 +22,7 @@
           <a :href="'/' + category + '/item/' + item.id">Veja mais</a>
         </p>
       </div>
-
-      <div class="" v-if="info.length > 17">
-        <p>{{ Pagination }}</p>
-      </div>
+      
     </div>
   </div>
 </template>
@@ -34,10 +30,12 @@
 <script>
 import axios from "axios";
 import TopLinks from "./TopLinks";
+//import BrandImages from '@/components/BrandImages'
 
 export default {
   components: {
     TopLinks,
+    BrandImages,
   },
   props: ["Brand", "Category"],
   data() {
@@ -54,7 +52,7 @@ export default {
   mounted() {
     axios
       .get(
-        `http://localhost:3000/${this.$route.params.category}/${this.$route.params.brand}`
+        `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/${this.$route.params.brand}`
       )
       .then((res) => (this.info = res.data));
   },
@@ -99,7 +97,7 @@ i {
   bottom: 2%;
   cursor: pointer;
   margin: 20px;
-  width: 250px;
+  max-width: 240px;
 }
 
 .carousel-img {

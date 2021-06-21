@@ -1,6 +1,7 @@
 <template>
   <div>
     <TopLinks
+      class="top-links"
       :category="Category"
       :brand="info[0].brand"
       :item="info[0].model"
@@ -8,7 +9,7 @@
 
     <div class="items-box">
       <div class="right-side">
-        <img :src="info[0].itemImage" alt="" />
+        <img class="main-img" :src="info[0].itemImage" alt="" />
       </div>
 
       <div class="left-side">
@@ -30,22 +31,31 @@
         </div>
       </div>
     </div>
+
     <div v-if="selectedPic !== null" class="selected-img">
       <i v-on:click="closePic()" class="fas fa-times-circle"></i><br />
       <img :src="selectedPic" alt="" />
-       <div @mouseover="leftArrow=true" @mouseleave="leftArrow=false" class="hidden-left">
-      <i
-        v-if="selPicIndex - 1 > 0 && leftArrow==true"
-        @click="selectPic(selPicIndex - 1)"
-        class="fas fa-chevron-circle-left"
-      ></i>
-     </div>
-     <div @mouseover="rightArrow=true" @mouseleave="rightArrow=false" class="hidden-right">
-      <i
-        v-if="selPicIndex < info[0].gallery.length && rightArrow==true"
-        @click="selectPic(selPicIndex + 1)"
-        class="fas fa-chevron-circle-right"
-      ></i>
+      <div
+        @mouseover="leftArrow = true"
+        @mouseleave="leftArrow = false"
+        class="hidden-left"
+      >
+        <i
+          v-if="selPicIndex - 1 > 0 && leftArrow == true"
+          @click="selectPic(selPicIndex - 1)"
+          class="fas fa-chevron-circle-left"
+        ></i>
+      </div>
+      <div
+        @mouseover="rightArrow = true"
+        @mouseleave="rightArrow = false"
+        class="hidden-right"
+      >
+        <i
+          v-if="selPicIndex < info[0].gallery.length && rightArrow == true"
+          @click="selectPic(selPicIndex + 1)"
+          class="fas fa-chevron-circle-right"
+        ></i>
       </div>
     </div>
   </div>
@@ -85,7 +95,7 @@ export default {
   mounted() {
     axios
       .get(
-        `http://localhost:3000/${this.$route.params.category}/item/${this.$route.params.id}`
+        `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/item/${this.$route.params.id}`
       )
       .then((res) => (this.info = res.data));
   },
@@ -106,16 +116,66 @@ a {
   color: #42b983;
 }
 
-.items-box {
-  position: relative;
-  background: rgb(8, 8, 8);
-  width: 90%;
-  margin-left: 3rem;
-  padding: 1rem;
-  min-height: 100vh;
-  border: 2px solid white;
+.top-links {
+  height: auto;
 }
 
+.main {
+  text-align: center;
+}
+
+.main-img {
+  /* height: 16vh; */
+  width: auto;
+}
+
+.items-box {
+  width: 80%;
+  background: rgb(8, 8, 8);
+  border: 2px solid white;
+  min-height: auto;
+  margin: 2%;
+  padding: 1rem;
+  /* text-align: center; */
+}
+
+.gallery {
+  display: inline;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.gallery img {
+  height: 16vh;
+  min-width: 18vw;
+  margin: 0;
+  object-fit: cover;
+}
+
+.gallery .look-icon {
+  /* position: absolute; */
+  text-decoration: none;
+}
+
+.gallery i {
+  position: relative;
+  display: none;
+  font-size: 32px;
+  /* right: 7vw; */
+  /* top: 5vh; */
+}
+
+.gallery:hover img {
+  animation-fill-mode: forwards;
+  animation-name: turn-dark;
+  animation-duration: 0.2s;
+}
+
+.gallery:hover i {
+  display: block;
+}
+
+/* 
 .right-side {
   position: absolute;
   left: 65%;
@@ -130,42 +190,7 @@ a {
   right: 38%;
   padding: 1rem;
 }
-
-.gallery {
-  display: inline;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.gallery img {
-  height: 16vh;
-  width: 12vw;
-  margin: 0;
-  object-fit: cover;
-}
-
-.gallery .look-icon {
-  position: absolute;
-  text-decoration: none;
-}
-
-.gallery i {
-  position: relative;
-  display: none;
-  font-size: 32px;
-  right: 7vw;
-  top: 5vh;
-}
-
-.gallery:hover img {
-  animation-fill-mode: forwards;
-  animation-name: turn-dark;
-  animation-duration: 0.2s;
-}
-
-.gallery:hover i {
-  display: block;
-}
+*/
 
 .selected-img {
   opacity: 0;
@@ -197,7 +222,6 @@ a {
   cursor: pointer;
 }
 
-
 .hidden-left {
   position: absolute;
   transform: translate(0%, -130%);
@@ -218,7 +242,7 @@ a {
 
 .selected-img .fas.fa-chevron-circle-left {
   position: absolute;
-   z-index: 1;
+  z-index: 1;
   font-size: 30px;
   top: 40%;
   left: 15%;
@@ -236,7 +260,6 @@ a {
   border-radius: 30px;
 }
 
-
 @keyframes turn-dark {
   to {
     opacity: 0.4;
@@ -248,5 +271,26 @@ a {
   to {
     display: block;
   }
+}
+
+@media screen and (max-width: 768px) {
+  /* .right-side {
+    position: static;
+    left: 0;
+  }
+
+  .right-side img {
+    width: 90%;
+  } */
+
+  .gallery {
+    margin: 0;
+  }
+  /*
+  .gallery img {
+     display: block;
+    margin: 0; 
+  }
+  */
 }
 </style>

@@ -3,8 +3,8 @@
       <div class="column">
         <h5>ENDEREÇO</h5>
         <p>
-          Rua Cristiano Viana, 549<br />
-          Pinheiros - São Paulo-SP CEP: 05411-000
+          Rua do Limoeiro, 000<br />
+          Centro - São Paulo-SP CEP: 00000-000
         </p>
       </div>
       <div class="column">
@@ -17,10 +17,10 @@
       <div class="column">
         <h5>ATENDIMENTO</h5>
         <p>
-          Telefone (11) 3081-6600<br /><br /></p>
+          Telefone (00) 0000-0000<br /><br /></p>
           <p>
           E-mail<br />
-          <a href="mailto:atendimento@twotone.com.br">atendimento@twotone.com.br</a>
+          <a href="mailto:atendimento@singletone.com">atendimento@singletone.com</a>
         </p>
       </div>
       <div class="column">
@@ -64,10 +64,6 @@ button {
   padding: 10px;
 }
 
-/* input {
-  height: 40px;
-  width: 260px;
-} */
 
 @media screen and (max-width: 768px) {
   .column {

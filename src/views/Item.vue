@@ -1,37 +1,36 @@
 <template>
   <div id="app">
-    <TopBar />
-    <NavBar :Active="category"/>
-    <ItemComponent :Category="thisCategory" :id="id"/>
+    <TopBar2 />
+    <NavBar :Active="category" />
+    <ItemComponent :Category="thisCategory" :id="id" />
     <BottomInfo />
     <Footer />
   </div>
 </template>
 
 <script>
-import TopBar from "../components/TopBar.vue";
+import TopBar2 from "../components/TopBar2.vue";
 import NavBar from "../components/NavBar.vue";
+import ItemComponent from "../components/ItemComponent.vue";
 import BottomInfo from "../components/BottomInfo.vue";
 import Footer from "../components/Footer.vue";
-import ItemComponent from "../components/ItemComponent.vue";
 
 export default {
   components: {
-    TopBar,
+    TopBar2,
     NavBar,
+    ItemComponent,
     BottomInfo,
     Footer,
-    ItemComponent,
   },
   data() {
     return {
-        thisCategory: this.$route.params.category,
-        id: this.$route.params.id,
+      thisCategory: this.$route.params.category,
+      id: this.$route.params.id,
     };
   },
 };
 </script>
 
 <style>
-
 </style>

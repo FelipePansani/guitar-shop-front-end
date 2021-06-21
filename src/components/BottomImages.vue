@@ -48,13 +48,6 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .main {
-    /* display: block; */
-  }
-
-  img {
-    /* margin: 10px 0;
-    width: 85%; */
-  }
+  
 }
 </style>

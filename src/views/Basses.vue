@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar />
+    <TopBar2 />
     <NavBar :Active="Category" />
     <CategoryComponent :category="Category"/>
     <BottomInfo />
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import TopBar from '../components/TopBar.vue'
+import TopBar2 from '../components/TopBar2.vue'
 import NavBar from '../components/NavBar.vue'
 import CategoryComponent from '../components/CategoryComponent.vue'
 import BottomInfo from '../components/BottomInfo.vue'
@@ -23,7 +23,7 @@ export default {
     }
   },
   components: {
-    TopBar,
+    TopBar2,
     NavBar,
     CategoryComponent,
     BottomInfo,

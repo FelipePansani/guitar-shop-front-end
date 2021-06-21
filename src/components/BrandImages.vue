@@ -1,47 +1,22 @@
 <template>
   <div>
-    <TopLinks :category="Category" :brand='""'/> 
-    <div class="brand-box">
-      <div class="brand-box-top">
-        <h3>{{ Category.charAt(0).toUpperCase() + Category.substring(1) }}</h3>
-      </div>
-
-      <div class="actual-brand-box">
-        <brand-images />
-      </div>
-
-      <!-- <div class="actual-brand-box" v-for="image in images" :key="image.brand">
-        <router-link
-          class="brand-item"
-          v-if="
-            resBrands.includes(image.brand) ||
-            image.brand ==
-              `all${Category.charAt(0).toUpperCase() + Category.substring(1)}`
-          "
-          :to="`${Category}/` + image.brand.toLowerCase()"
-        >
-          <img :src="image.brandImage" />
-        </router-link>
-      </div> -->
+    <div v-for="item in images" :key="item.brand" >
+      <router-link :to="`${Category}/` + item.brand.toLowerCase()" >
+        <img :src="item.brandImage" alt="" />
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import BrandImages from '@/components/BrandImages'
-import TopLinks from "./TopLinks";
+//import axios from "axios";
 
 export default {
-  components: {
-    TopLinks,
-    BrandImages
-  },
-  props: ["Category"],
   data() {
     return {
       info: [],
       oneBrands: [],
+      // Category: 'guitars',
       images: [
         {
           brand: "Fender",
@@ -110,54 +85,9 @@ export default {
       ],
     };
   },
-  computed: {
-    resBrands: function () {
-      this.info.map((item) => this.oneBrands.push(item.brand));
-
-      return this.oneBrands.filter(
-        (item, index) => this.oneBrands.indexOf(item) === index
-      );
-    },
-  },
-  mounted() {
-    axios
-      .get(`https://citara-store-1000-fb-app.herokuapp.com/${this.Category.toLowerCase()}`)
-      .then((res) => (this.info = res.data));
-  },
+  created() {},
 };
 </script>
 
-<style scoped>
-.brand-box {
-  background: black;
-  margin: 5vh 5vw 5vh 5vw;
-  box-shadow: 0px 0px 0px 2px white;
-  border-radius: 10px;
-}
-
-.brand-box-top {
-  color: black;
-  background: white;
-  padding: 0.2px 0;
-  padding-left: 50px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.actual-brand-box {
-  display: inline-block;
-  padding-top: 2vh;
-  padding-bottom: 3vh;
-}
-
-.brand-item img {
-  margin: 2vh 2vw 2vh 2vw;
-  padding-left: 2vw;
-}
-
-@media screen and (max-width: 768px) {
-  /* .actual-brand-box {
-  } */
-}
-
+<style>
 </style>

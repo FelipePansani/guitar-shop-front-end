@@ -10,12 +10,6 @@
       </div>
     </div>
 
-    <!-- <div class="button-row">
-      <button @click="selectImg(1)"></button>
-      <button @click="selectImg(2)"></button>
-      <button @click="selectImg(3)"></button>
-    </div> -->
-
     <div class="button-row" :key="image.id" v-for="image in images">
       <button
         :class="{ active: image.checked }"
@@ -24,13 +18,6 @@
       ></button>
     </div>
 
-    <!-- <div class="button-row">
-        <button
-          :class="{ active: image.checked }"
-          @click="selectImg(image.id)"
-          :checked="image.checked"
-        ></button>
-      </div> -->
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar />
+    <TopBar2 />
     <NavBar :Active="'multimidia'" />
     <div class="photo-section">
       <h2>PRS - Arquivo</h2>
@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import TopBar from "../components/TopBar.vue";
+import TopBar2 from "../components/TopBar2.vue";
 import NavBar from "../components/NavBar.vue";
 import BottomInfo from "../components/BottomInfo.vue";
 import Footer from "../components/Footer.vue";
 
 export default {
   components: {
-    TopBar,
+    TopBar2,
     NavBar,
     BottomInfo,
     Footer,
@@ -51,17 +51,22 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  color: white;
-}
 
 .photo-section {
-  margin-left: 100px;
+  color: white;
+  margin-left: 5vw;
   width: 320px;
   display: inline-block;
 }
 
 img {
+  vertical-align: top;
   width: 320px;
+}
+
+@media screen and (max-width: 768px) {
+  .photo-section {
+    display: block;
+  }
 }
 </style>

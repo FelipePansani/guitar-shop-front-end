@@ -36,7 +36,7 @@ export default {
 h5 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: white;
-  margin-left: 5px;
+  /* margin-left: 5px; */
 }
 
 i {
@@ -45,14 +45,18 @@ i {
 }
 
 .top-links {
-  position: relative;
   margin: 10px 0px 30px 100px;
-  height: 30px;
-  margin-top: 0;
+  z-index: 1;
 }
 
 .top-links i,
 h5 {
   display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+  .top-links {
+    margin: 0;
+  }
 }
 </style>

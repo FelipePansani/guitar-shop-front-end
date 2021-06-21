@@ -3,7 +3,7 @@
     <h2>CONFIRA O QUE ACABOU DE CHEGAR</h2>
 
     <transition name="fade" mode="out-in" appear>
-      <div :key="first">
+      <div :key="info.item.id">
         <div v-if="first === true">
           <transition-group name="fade" appear>
             <div
@@ -33,6 +33,9 @@
 
     <button :class="{ active: first }" @click="first = true"></button>
     <button :class="{ active: !first }" @click="first = false"></button>
+<!-- 
+    <button :class="{ active: first }" @click="this.autoSlide()"></button>
+    <button :class="{ active: !first }" @click="this.autoSlide()"></button> -->
   </div>
 </template>
 
@@ -45,14 +48,14 @@ export default {
     return {
       info: [],
       number: 1,
-      first: true,
+      first: true
     };
   },
   computed: {
-    firstRow: function () {
+    firstRow() {
       return this.info.slice(0, 9);
     },
-    secondRow: function () {
+    secondRow() {
       return this.info.slice(9, 18);
     },
   },
@@ -61,12 +64,15 @@ export default {
       setInterval(() => (this.first = !this.first), 8000);
     },
   },
-  mounted() {
+  created() {
     axios
-      .get(`http://localhost:3000/guitars`)
+      .get(`https://citara-store-1000-fb-app.herokuapp.com/guitars`)
       .then((res) => (this.info = res.data));
 
     this.autoSlide();
+  },
+  mounted() {
+    
   },
 };
 </script>
