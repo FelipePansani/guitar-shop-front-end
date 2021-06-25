@@ -2,7 +2,7 @@
   <div class="main-nav">
     <nav>
       <ul>
-        <div :key="item.id" v-for="item in NavItems">
+        <div :key="item.EnName" v-for="item in NavItems">
           <div v-if="item.EnName == 'multimidia'">
             <li
               @mouseover="icon='fas fa-times'"
@@ -64,17 +64,19 @@ export default {
 </script>
 
 <style scoped>
+
 .main-nav {
-  width: 100%;
+  background: #42b983;
+  height: auto;
+  padding: 0.125rem 0.625rem;
 }
 
-nav {
-  background: #42b983;
-  height: auto 60px;
+ nav * > *{
+  display: inline-block;
 }
 
 .fas.fa-bars {
-  padding: 2px;
+  padding: 0.125rem;
   border-radius: 5%;
   box-shadow: 0 0 4px black;
   color: white;
@@ -84,36 +86,34 @@ nav {
   position: absolute;
   display: none;
   background: #42b983;
-  padding: 5px;
+  padding:  0.3125rem;
   animation-duration: 0.5s;
   animation-name: fade-in;
   z-index: 1;
 }
 
-.multimidia:hover .multimidia-column {
+.multimidia-column li {
   display: block;
+  margin: 0.75rem;
 }
 
 .fas.fa-arrow-down {
-  margin-left: 5px;
+  margin-left: 0.3125rem;
   color: white;
 }
 
 .fas.fa-times {
-  margin-left: 5px;
+  margin-left: 0.3125rem;
   color: white;
 }
 
-ul {
-  list-style-type: none;
+.multimidia:hover .multimidia-column {
+  display: block;
+  padding: 0 0.75rem;
 }
 
 li {
-  margin: 12px 15px;
-}
-
-div {
-  display: inline-block;
+  margin: 0 0 0 1.25rem;
 }
 
 a {

@@ -1,22 +1,19 @@
 <template>
   <div>
-    <div v-for="item in images" :key="item.brand" >
-      <router-link :to="`${Category}/` + item.brand.toLowerCase()" >
-        <img :src="item.brandImage" alt="" />
-      </router-link>
+    <div>
+      <img
+        :src="getImage"
+        alt=""
+      />
     </div>
   </div>
 </template>
 
 <script>
-//import axios from "axios";
-
 export default {
+  props: ["Brand"],
   data() {
     return {
-      info: [],
-      oneBrands: [],
-      // Category: 'guitars',
       images: [
         {
           brand: "Fender",
@@ -67,27 +64,37 @@ export default {
           brandImage: "https://i.ibb.co/c1SB0XP/Logo-evh.jpg",
         },
         {
-          brand: "allGuitars",
+          brand: "Allguitars",
           brandImage: "https://i.ibb.co/yYmBZYF/all-guitars.png",
         },
         {
-          brand: "allBasses",
+          brand: "Allbasses",
           brandImage: "https://i.ibb.co/FBjzxSc/z-ver-todos-baixo.png",
         },
         {
-          brand: "allAmps",
+          brand: "Allamps",
           brandImage: "https://i.ibb.co/vzpx7yc/ver-todos-ampli.png",
         },
         {
-          brand: "allAcoustic",
+          brand: "Allacoustic",
           brandImage: "https://i.ibb.co/HPvKyzT/z-ver-todos-violao.png",
         },
       ],
     };
   },
-  created() {},
+  computed: {
+    getImage() {
+      // if ()
+      return this.images.find((image) => image.brand == this.Brand).brandImage
+    }
+  },
 };
 </script>
 
-<style>
+<style scoped>
+div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

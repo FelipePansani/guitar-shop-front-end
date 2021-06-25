@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar2 />
+    <TopBar />
     <NavBar :Active="'Home'" />
     <MainCarousel />
     <Main />
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import TopBar2 from "../components/TopBar2.vue";
+import TopBar from "../components/TopBar.vue";
 import NavBar from "../components/NavBar.vue";
 import MainCarousel from "../components/MainCarousel.vue";
 import Main from "../components/Main.vue";
@@ -22,7 +22,7 @@ import Footer from "../components/Footer.vue";
 export default {
   name: "Home",
   components: {
-    TopBar2,
+    TopBar,
     NavBar,
     MainCarousel,
     Main,

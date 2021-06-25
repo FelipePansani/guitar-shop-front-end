@@ -1,9 +1,9 @@
 <template>
   <div class="main">
-    <div :key="image.id" v-for="image in images">
+    <div :key="image.imgPath" v-for="image in images">
       <div>
         <img
-          v-if="image.checked === true"
+          v-if="image.checked == true"
           :src="image.imgPath"
           alt="Image not available"
         />
@@ -17,11 +17,14 @@
         :checked="image.checked"
       ></button>
     </div>
-
   </div>
 </template>
 
 <script>
+import ImageOne from "../../public/carouselOne/ZAKKZV.jpg";
+import ImageTwo from "../../public/carouselOne/FCSLM.jpg";
+import ImageThree from "../../public/carouselOne/SVER.jpg";
+
 export default {
   name: "MainCarousel",
   data() {
@@ -30,23 +33,26 @@ export default {
       images: [
         {
           id: 1,
-          imgPath: "https://i.ibb.co/0nmw3rZ/ZAKKZV.jpg",
+          // imgPath: "https://i.ibb.co/0nmw3rZ/ZAKKZV.jpg",
+          imgPath: ImageOne,
           checked: true,
         },
         {
           id: 2,
-          imgPath: "https://i.ibb.co/jgKr4J7/FCSLM.jpg",
+          // imgPath: "https://i.ibb.co/jgKr4J7/FCSLM.jpg",
+          imgPath: ImageTwo,
           checked: false,
         },
         {
           id: 3,
-          imgPath: "https://i.ibb.co/cT5gGK1/SVER.jpg",
+          // imgPath: "https://i.ibb.co/cT5gGK1/SVER.jpg",
+          imgPath: ImageThree,
           checked: false,
         },
       ],
     };
   },
-  computed: {},
+
   methods: {
     selectImg(id) {
       this.images.find((item) => item.id == id).checked = true;
@@ -56,33 +62,32 @@ export default {
       this.number = id;
     },
   },
-  mounted() {
-    setInterval(() => {
-      this.images.find((item) => item.id == this.number).checked = true;
-      this.images
-        .filter((item) => item.id !== this.number)
-        .map((item) => (item.checked = false));
-      if (this.number > 2) {
-        this.number = 1;
-      } else {
-        this.number++;
-      }
-    }, 4000);
-  },
+    mounted() {
+      setInterval(() => {
+        this.images.find((item) => item.id == this.number).checked = true;
+        this.images
+          .filter((item) => item.id !== this.number)
+          .map((item) => (item.checked = false));
+        if (this.number > 2) {
+          this.number = 1;
+        } else {
+          this.number++;
+        }
+      }, 5000);
+    },
 };
 </script>
 
 <style scoped>
 .main {
-  /* width: 100%; */
   text-align: center;
+  padding: 0.75rem 0;
 }
 
 .main img {
   animation-duration: 1s;
   animation-name: fade-in;
   width: 90vw;
-  top: 60vh;
 }
 
 .button-row {
@@ -90,8 +95,8 @@ export default {
 }
 
 .button-row button {
-  width: 14px;
-  height: 15px;
+  width: 0.875rem;
+  height: 0.9375rem;
   margin-right: 0.5vw;
   border: none;
   border-radius: 30px;
@@ -111,14 +116,10 @@ export default {
   }
 }
 
-/* @media screen and (max-width: 768px) {
-  .main img {
-    width: 90vw;
-    top: 60vh;
-  }
+@media screen and (max-width: 768px) {
+  /* .main {
+    height: 30vh;
+  } */
+}
 
-  .button-row {
-    top: 15vh;
-  }
-} */
 </style>

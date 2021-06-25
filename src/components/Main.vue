@@ -1,41 +1,20 @@
 <template>
   <div class="body">
     <h2>CONFIRA O QUE ACABOU DE CHEGAR</h2>
-
-    <transition name="fade" mode="out-in" appear>
-      <div :key="info.item.id">
-        <div v-if="first === true">
-          <transition-group name="fade" appear>
-            <div
-              :style="`transition-delay:${item.id / 9}s; `"
-              style="display: inline"
-              :key="item.id"
-              v-for="item in firstRow"
-            >
-              <img :src="item.imgPath" alt="" />
-            </div>
-          </transition-group>
-        </div>
-        <div v-else>
-          <transition-group name="fade" appear>
-            <div
-              :style="`transition-delay:${item.id / 9}s; `"
-              style="display: inline"
-              :key="item.id"
-              v-for="item in secondRow"
-            >
-              <img :src="item.imgPath" alt="" />
-            </div>
-          </transition-group>
-        </div>
+    
+    <div class="carousel-imgs">
+      <div :key="item.id" v-for="item in first ? firstRow : secondRow">
+        <transition name="fade" mode="out-in" appear>
+          <a :style="`transition-delay:${item.id / 9}s; `" :href="'/'">
+            <img :src="item.imgPath" alt="" />
+          </a>
+        </transition>
       </div>
-    </transition>
+    </div>
 
     <button :class="{ active: first }" @click="first = true"></button>
     <button :class="{ active: !first }" @click="first = false"></button>
-<!-- 
-    <button :class="{ active: first }" @click="this.autoSlide()"></button>
-    <button :class="{ active: !first }" @click="this.autoSlide()"></button> -->
+    
   </div>
 </template>
 
@@ -48,7 +27,7 @@ export default {
     return {
       info: [],
       number: 1,
-      first: true
+      first: true,
     };
   },
   computed: {
@@ -61,18 +40,16 @@ export default {
   },
   methods: {
     autoSlide() {
-      setInterval(() => (this.first = !this.first), 8000);
+      return (this.first = !this.first);
     },
   },
   created() {
+    setInterval(() => (this.first = !this.first), 8000);
+  },
+  mounted() {
     axios
       .get(`https://citara-store-1000-fb-app.herokuapp.com/guitars`)
       .then((res) => (this.info = res.data));
-
-    this.autoSlide();
-  },
-  mounted() {
-    
   },
 };
 </script>
@@ -89,38 +66,38 @@ export default {
 
 .body {
   color: white;
-  padding: 10px;
   text-align: center;
 }
 
 button {
-  height: 15px;
-  width: 14px;
+  height: 0.9375rem;
+  width: 0.875rem;
   margin-right: 0.5vw;
   border: none;
-  border-radius: 30px;
+  border-radius: 0.875rem;
 }
 
 .active {
   background: #42b983;
 }
+
 .carousel-imgs {
-  height: 170px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 
 img {
-  height: 140px;
-  width: 120px;
-  margin: 8px;
-  text-align: right;
+  height: 8.75rem;
+  width: 7.5rem;
+  margin: 0.625rem;
   opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
   img {
-    height: 60px;
-    width: 50px;
+    height: max(95%);
+    width: max(90%);
+    margin: 0.125rem;
   }
 }
 </style>

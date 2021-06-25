@@ -1,9 +1,11 @@
 <template>
   <div>
     <TopLinks :category="Category" :brand="Brand" />
+
     <div class="brand-logo-box">
-      <!-- <BrandImages /> -->
+      <BrandImages :brand="brandToImage" />
     </div>
+
     <div class="items-box">
       <div class="item" :key="item.id" v-for="item in info">
         <a :href="'/' + category + '/item/' + item.id">
@@ -18,11 +20,10 @@
           <h4>{{ item.brand }} {{ item.model }}</h4>
         </a>
         <p>
-          {{ item.state }} |
+          {{ item.state }}
           <a :href="'/' + category + '/item/' + item.id">Veja mais</a>
         </p>
       </div>
-      
     </div>
   </div>
 </template>
@@ -30,7 +31,7 @@
 <script>
 import axios from "axios";
 import TopLinks from "./TopLinks";
-//import BrandImages from '@/components/BrandImages'
+import BrandImages from "@/components/BrandImages";
 
 export default {
   components: {
@@ -42,14 +43,15 @@ export default {
     return {
       info: null,
       category: this.$route.params.category,
+      brandToImage: this.Brand.charAt(0).toUpperCase() + this.Brand.substring(1),
     };
   },
-  computed: {
-    Pagination: function () {
-      return Math.floor((this.info.length - 1) / 16 + 1);
-    },
-  },
-  mounted() {
+  // computed: {
+  //   Pagination: function () {
+  //     return Math.floor((this.info.length - 1) / 16 + 1);
+  //   },
+  // },
+  created() {
     axios
       .get(
         `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/${this.$route.params.brand}`
@@ -116,4 +118,4 @@ i {
 .product-title:hover {
   color: #42b983;
 }
-</style>>
+</style>

@@ -92,7 +92,7 @@ export default {
       this.selectedPic = null;
     },
   },
-  mounted() {
+  created() {
     axios
       .get(
         `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/item/${this.$route.params.id}`
@@ -103,45 +103,13 @@ export default {
 </script>
 
 <style scoped>
-h1,
-h2,
-h3,
-h4,
-p,
-i {
+* {
   color: white;
-}
-
-a {
-  color: #42b983;
-}
-
-.top-links {
-  height: auto;
-}
-
-.main {
-  text-align: center;
-}
-
-.main-img {
-  /* height: 16vh; */
-  width: auto;
-}
-
-.items-box {
-  width: 80%;
-  background: rgb(8, 8, 8);
-  border: 2px solid white;
-  min-height: auto;
-  margin: 2%;
-  padding: 1rem;
-  /* text-align: center; */
 }
 
 .gallery {
   display: inline;
-  margin: 5px;
+  margin: 0.3125rem;
   cursor: pointer;
 }
 
@@ -152,17 +120,31 @@ a {
   object-fit: cover;
 }
 
+.items-box {
+  width: 80%;
+  background: rgb(8, 8, 8);
+  border: 2px solid white;
+  min-height: auto;
+  margin: 2%;
+  padding: 1rem;
+  display: flex;
+}
+
 .gallery .look-icon {
-  /* position: absolute; */
+  position: absolute;
   text-decoration: none;
+}
+
+.gallery:hover i {
+  display: block;
 }
 
 .gallery i {
   position: relative;
   display: none;
-  font-size: 32px;
-  /* right: 7vw; */
-  /* top: 5vh; */
+  font-size: 2rem;
+  right: 7vw;
+  top: 5vh;
 }
 
 .gallery:hover img {
@@ -171,26 +153,34 @@ a {
   animation-duration: 0.2s;
 }
 
-.gallery:hover i {
-  display: block;
-}
-
-/* 
 .right-side {
-  position: absolute;
-  left: 65%;
+  margin-left: auto;
+  order: 2;
 }
 
 .right-side img {
-  max-height: 540px;
+  min-width: 30rem;
+  max-width: 80%;
+  max-height: 80%;
 }
 
-.left-side {
+.hidden-left {
   position: absolute;
-  right: 38%;
-  padding: 1rem;
+  transform: translate(0%, -130%);
+  left: 0.2vw;
+  background: transparent;
+  width: 8vw;
+  height: 50vh;
 }
-*/
+
+.hidden-right {
+  position: absolute;
+  transform: translate(0%, -130%);
+  right: 0.2vw;
+  background: transparent;
+  width: 8vw;
+  height: 50vh;
+}
 
 .selected-img {
   opacity: 0;
@@ -220,24 +210,6 @@ a {
   border-radius: 30px;
   box-shadow: 0px 3px 2px black;
   cursor: pointer;
-}
-
-.hidden-left {
-  position: absolute;
-  transform: translate(0%, -130%);
-  left: 0.2vw;
-  background: transparent;
-  width: 8vw;
-  height: 50vh;
-}
-
-.hidden-right {
-  position: absolute;
-  transform: translate(0%, -130%);
-  right: 0.2vw;
-  background: transparent;
-  width: 8vw;
-  height: 50vh;
 }
 
 .selected-img .fas.fa-chevron-circle-left {
@@ -274,23 +246,8 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  /* .right-side {
-    position: static;
-    left: 0;
+  .items-box {
+    display: block;
   }
-
-  .right-side img {
-    width: 90%;
-  } */
-
-  .gallery {
-    margin: 0;
-  }
-  /*
-  .gallery img {
-     display: block;
-    margin: 0; 
-  }
-  */
 }
 </style>

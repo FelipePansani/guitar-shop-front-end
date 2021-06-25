@@ -2,7 +2,7 @@
   <div>
     <h5>
       Copyright © 2021 Single Tone - Todos os direitos reservados. Desenvolvido
-      por <span>Felipe Pansani.</span>
+      por<span> Felipe Pansani.</span>
     </h5>
     <a v-on:click="toTop()"><i class="fas fa-arrow-circle-up"></i></a>
   </div>
@@ -22,22 +22,21 @@ export default {
 <style scoped>
 div {
   background: rgb(20, 20, 20);
-  padding: 60px;
+  padding: 3.75rem;
   color: white;
   scroll-behavior: smooth;
-  /* width: auto; */
 }
 
 h5,
 a {
-  display: inline;
+  display: flex;
 }
 
 a {
   color: #42b983;
-  font-size: 30px;
-  margin-left: 40%;
+  font-size: 1.875rem;
   cursor: pointer;
+  justify-content: right;
 }
 
 i:hover {
@@ -48,16 +47,17 @@ span {
   color: #42b983;
 }
 
+
 @media screen and (max-width: 768px) {
   div {
     font-size: 0.8rem;
     break-after: right;
     padding: 40px;
   }
-  
+
   h5,
   a {
-    display: block;
+    /* display: block; */
   }
 }
 </style>
