@@ -32,7 +32,7 @@ export default {
           brandImage: "https://i.ibb.co/MsL07Tp/Logo-Ibanez.jpg",
         },
         {
-          brand: "PRS",
+          brand: "Prs",
           brandImage: "https://i.ibb.co/pzbwyzB/Logo-PRS.jpg",
         },
         {
@@ -60,7 +60,7 @@ export default {
           brandImage: "https://i.ibb.co/0y7y5vM/Logo-Music-Man.jpg",
         },
         {
-          brand: "EVH",
+          brand: "Evh",
           brandImage: "https://i.ibb.co/c1SB0XP/Logo-evh.jpg",
         },
         {
@@ -84,7 +84,6 @@ export default {
   },
   computed: {
     getImage() {
-      // if ()
       return this.images.find((image) => image.brand == this.Brand).brandImage
     }
   },

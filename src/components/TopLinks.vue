@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="top-links">
+    <div class="main">
       <i v-show="true" class="fas fa-map-marker-alt"
         ><a :href="`../../${Category}`"
           ><h5>
@@ -33,30 +33,30 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  margin: 2rem;
+}
+
 h5 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: white;
-  /* margin-left: 5px; */
+  margin: 0 5px 0 5px;
 }
 
 i {
   color: #42b983;
-  margin-left: 5px;
+  margin: 0 5px 0 5px;
 }
 
-.top-links {
-  margin: 10px 0px 30px 100px;
-  z-index: 1;
-}
-
-.top-links i,
+i,
 h5 {
   display: inline-block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 40rem) {
   .top-links {
     margin: 0;
+    font-size: 12px;
   }
 }
 </style>

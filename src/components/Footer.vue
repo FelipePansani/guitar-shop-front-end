@@ -48,16 +48,16 @@ span {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 40rem) {
   div {
     font-size: 0.8rem;
     break-after: right;
     padding: 40px;
   }
 
-  h5,
-  a {
-    /* display: block; */
-  }
+    /* h5,
+    a {
+      display: block;
+    } */
 }
 </style>

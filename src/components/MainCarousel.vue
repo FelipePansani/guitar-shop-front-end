@@ -21,10 +21,6 @@
 </template>
 
 <script>
-import ImageOne from "../../public/carouselOne/ZAKKZV.jpg";
-import ImageTwo from "../../public/carouselOne/FCSLM.jpg";
-import ImageThree from "../../public/carouselOne/SVER.jpg";
-
 export default {
   name: "MainCarousel",
   data() {
@@ -33,20 +29,17 @@ export default {
       images: [
         {
           id: 1,
-          // imgPath: "https://i.ibb.co/0nmw3rZ/ZAKKZV.jpg",
-          imgPath: ImageOne,
+          imgPath: "https://i.ibb.co/0nmw3rZ/ZAKKZV.jpg",
           checked: true,
         },
         {
           id: 2,
-          // imgPath: "https://i.ibb.co/jgKr4J7/FCSLM.jpg",
-          imgPath: ImageTwo,
+          imgPath: "https://i.ibb.co/jgKr4J7/FCSLM.jpg",
           checked: false,
         },
         {
           id: 3,
-          // imgPath: "https://i.ibb.co/cT5gGK1/SVER.jpg",
-          imgPath: ImageThree,
+          imgPath: "https://i.ibb.co/cT5gGK1/SVER.jpg",
           checked: false,
         },
       ],
@@ -79,12 +72,15 @@ export default {
 </script>
 
 <style scoped>
+
 .main {
+  display: block;
   text-align: center;
   padding: 0.75rem 0;
 }
 
 .main img {
+  height: 60vh;
   animation-duration: 1s;
   animation-name: fade-in;
   width: 90vw;
@@ -116,10 +112,10 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* .main {
+@media screen and (max-width: 40rem) {
+  .main img {
     height: 30vh;
-  } */
+  }
 }
 
 </style>

@@ -65,7 +65,7 @@ button {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 40rem) {
   .column {
     display: block;
     margin: 0;

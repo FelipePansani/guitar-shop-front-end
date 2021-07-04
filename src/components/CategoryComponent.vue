@@ -173,7 +173,7 @@ export default {
   margin: 5rem 3rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 40rem) {
 
 }
 </style>

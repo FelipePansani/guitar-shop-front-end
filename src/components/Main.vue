@@ -1,11 +1,14 @@
 <template>
   <div class="body">
     <h2>CONFIRA O QUE ACABOU DE CHEGAR</h2>
-    
+
     <div class="carousel-imgs">
       <div :key="item.id" v-for="item in first ? firstRow : secondRow">
         <transition name="fade" mode="out-in" appear>
-          <a :style="`transition-delay:${item.id / 9}s; `" :href="'/'">
+          <a
+            :style="`transition-delay:${item.id / 9}s; `"
+            :href="'guitars/item/' + item.id"
+          >
             <img :src="item.imgPath" alt="" />
           </a>
         </transition>
@@ -14,7 +17,6 @@
 
     <button :class="{ active: first }" @click="first = true"></button>
     <button :class="{ active: !first }" @click="first = false"></button>
-    
   </div>
 </template>
 
@@ -40,11 +42,19 @@ export default {
   },
   methods: {
     autoSlide() {
-      return (this.first = !this.first);
+      this.first = this.first = !this.first;
     },
   },
+  watch: {
+    // autoSlide() {
+    //   setInterval(() => (this.first = !this.first), 8000)
+    // },
+    // autoSlide() {
+    //   this.first = this.first = !this.first
+    // }
+  },
   created() {
-    setInterval(() => (this.first = !this.first), 8000);
+    setInterval(() => this.autoSlide(), 6000);
   },
   mounted() {
     axios
@@ -67,6 +77,8 @@ export default {
 .body {
   color: white;
   text-align: center;
+  display: block;
+  width: 100%;
 }
 
 button {
@@ -82,21 +94,27 @@ button {
 }
 
 .carousel-imgs {
+  font-size: 16px;
   display: flex;
   justify-content: center;
 }
 
-img {
+.carousel-imgs img {
   height: 8.75rem;
   width: 7.5rem;
   margin: 0.625rem;
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-  img {
-    height: max(95%);
-    width: max(90%);
+@media screen and (max-width: 40rem) {
+  .carousel-imgs {
+    font-size: 8px;
+  }
+  .carousel-imgs img {
+    /* height: 95%;
+    width: 80%; */
+    max-height: 3.75rem;
+    max-width: 2.15rem;
     margin: 0.125rem;
   }
 }

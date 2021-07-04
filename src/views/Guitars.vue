@@ -18,7 +18,7 @@ import Footer from '../components/Footer.vue'
 export default {
   data() {
     return {
-      category: 'guitars',
+      // category: 'guitars',
     }
   },
   components: {
