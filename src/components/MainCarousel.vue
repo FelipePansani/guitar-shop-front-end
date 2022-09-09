@@ -1,12 +1,13 @@
 <template>
   <div class="main">
     <div :key="image.imgPath" v-for="image in images">
-      <div>
+      <div class="carouselImgBox">
         <img
           v-if="image.checked == true"
           :src="image.imgPath"
           alt="Image not available"
         />
+        <!-- <p :style="{ color: 'white'}" >asd</p> -->
       </div>
     </div>
 
@@ -15,7 +16,8 @@
         :class="{ active: image.checked }"
         @click="selectImg(image.id)"
         :checked="image.checked"
-      ></button>
+      >
+    </button>
     </div>
   </div>
 </template>
@@ -84,6 +86,10 @@ export default {
   animation-duration: 1s;
   animation-name: fade-in;
   width: 90vw;
+}
+
+.carouselImgBox {
+  height: fit-content; 
 }
 
 .button-row {

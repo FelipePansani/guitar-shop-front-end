@@ -6,14 +6,11 @@
       :brand="info[0].brand"
       :item="info[0].model"
     />
-    
+
     <div class="main">
       <div class="itemsBox">
         <div class="mainImg">
-          <img
-            :src="info[0].itemImage"
-            alt=""
-          />
+          <img :src="info[0].itemImage" alt="" />
         </div>
 
         <div class="firstHalf">
@@ -28,7 +25,6 @@
           <div class="gallery" :key="item.id" v-for="item in info[0].gallery">
             <a @click="selectImg(item.id)"><img :src="item.img" alt="" /></a>
           </div>
-          
         </div>
 
         <div v-if="selectedPic !== null" class="selectedPicStyle">
@@ -66,9 +62,7 @@ export default {
   },
   created() {
     axios
-      .get(
-        `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/item/${this.$route.params.id}`
-      )
+      .get(`https://single-tone-server.vercel.app/${this.$route.params.category}/item/${this.$route.params.id}`)
       .then((res) => (this.info = res.data));
   },
 };

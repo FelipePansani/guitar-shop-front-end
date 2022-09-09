@@ -5,10 +5,7 @@
     <div class="carousel-imgs">
       <div :key="item.id" v-for="item in first ? firstRow : secondRow">
         <transition name="fade" mode="out-in" appear>
-          <a
-            :style="`transition-delay:${item.id / 9}s; `"
-            :href="'guitars/item/' + item.id"
-          >
+          <a :style="`transition-delay:${item.id / 9}s; `" :href="'guitars/item/' + item.id">
             <img :src="item.imgPath" alt="" />
           </a>
         </transition>
@@ -58,7 +55,10 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://citara-store-1000-fb-app.herokuapp.com/guitars`)
+      .get(
+        //`https://citara-store-1000-fb-app.herokuapp.com/guitars`
+         `https://single-tone-server.vercel.app/guitars`      
+        )
       .then((res) => (this.info = res.data));
   },
 };
@@ -69,6 +69,7 @@ export default {
 .fade-leave-active {
   transition: opacity 0.6s;
 }
+
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -110,6 +111,7 @@ button {
   .carousel-imgs {
     font-size: 8px;
   }
+
   .carousel-imgs img {
     /* height: 95%;
     width: 80%; */

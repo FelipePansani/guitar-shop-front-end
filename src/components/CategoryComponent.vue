@@ -128,9 +128,7 @@ export default {
   },
   created() {
     axios
-      .get(
-        `https://citara-store-1000-fb-app.herokuapp.com/${this.Category.toLowerCase()}`
-      )
+      .get(`https://single-tone-server.vercel.app/${this.Category.toLowerCase()}`)
       .then((res) => (this.info = res.data));
   },
 };

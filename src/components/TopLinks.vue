@@ -5,12 +5,12 @@
         ><a :href="`../../${Category}`"
           ><h5>
             {{ Category.charAt(0).toUpperCase() + Category.substring(1) }}
-          </h5></a
-        ></i
-      >
+          </h5>
+        </a>
+        </i>
       <i v-show="Brand !== undefined" class="fas fa-chevron-right"
-        ><a :href="`../../${Category + '/' + lowerCaseBrand}`"
-          ><h5>{{ Brand.charAt(0).toUpperCase() + Brand.substring(1) }}</h5></a
+        ><a :href="`../../${Category + '/' + lowerCaseBrand}`">
+          <h5>{{ Brand.charAt(0).toUpperCase() + Brand.substring(1) }}</h5></a
         ></i
       >
       <i v-show="Item !== undefined" class="fas fa-chevron-right"
@@ -26,8 +26,10 @@ export default {
   data() {
     return {
       lowerCaseBrand:
-        this.Brand.charAt(0).toLowerCase() + this.Brand.substring(1),
-    };
+        //this.Brand.charAt(0).toLowerCase() + this.Brand.substring(1),
+        this.Brand.toLowerCase(),
+      }
+    ;
   },
 };
 </script>

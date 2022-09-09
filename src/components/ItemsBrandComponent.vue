@@ -43,7 +43,8 @@ export default {
     return {
       info: null,
       category: this.$route.params.category,
-      brandToImage: this.Brand.charAt(0).toUpperCase() + this.Brand.substring(1),
+      brandToImage:
+        this.Brand.charAt(0).toUpperCase() + this.Brand.substring(1),
     };
   },
   // computed: {
@@ -53,9 +54,7 @@ export default {
   // },
   created() {
     axios
-      .get(
-        `https://citara-store-1000-fb-app.herokuapp.com/${this.$route.params.category}/${this.$route.params.brand}`
-      )
+      .get(`https://single-tone-server.vercel.app/${this.$route.params.category}/${this.$route.params.brand}`)
       .then((res) => (this.info = res.data));
   },
 };
